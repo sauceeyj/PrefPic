@@ -9,12 +9,20 @@ const router = useRouter();
 
 const navigateToAddPearls = () => {
   router.push("addPearls");
+
+
 };
+const navigateToAdd_3 = () => {
+   router.push("add_3");
+}
   return (
     <View style={styles.container}>
       <Text>Welcome to the Home Screen!</Text>
         <TouchableOpacity onPress={navigateToAddPearls}>
             <Text>Go to add pearl screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToAdd_3}>
+            <Text>Go to add_3 slide</Text>
         </TouchableOpacity>
     </View>
 
