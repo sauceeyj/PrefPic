@@ -109,8 +109,9 @@ const styles = StyleSheet.create({
   
 });
 
-export default function add_3() {
+export default function reviewImage() {
   const router = useRouter();
+
   const [isPreview, setIsPreview] = useState(false); 
 
 
@@ -134,7 +135,7 @@ export default function add_3() {
 
       {/* Image */}
       <TouchableOpacity onPress={handleImageClick}>
-        <Image style={styles.image} source={require("../assets/scalpel.png")} />
+        <Image style={styles.image} source={require("../assets/reviewImage/reviewImage.png")} />
       </TouchableOpacity>
 
 
@@ -144,7 +145,7 @@ export default function add_3() {
           <TouchableOpacity onPress={handleClosePreview} style={styles.closeButton}>
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity>
-          <Image style={styles.fullImage} source={require("../assets/scalpel.png")} />
+          <Image style={styles.fullImage} source={require("../assets/reviewImage/reviewImage.png")} />
         </View>
       )}
 

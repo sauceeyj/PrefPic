@@ -12,8 +12,8 @@ const navigateToAddPearls = () => {
 
 
 };
-const navigateToAdd_3 = () => {
-   router.push("add_3");
+const navigateToreviewImage = () => {
+   router.push("reviewImage");
 }
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ const navigateToAdd_3 = () => {
         <TouchableOpacity onPress={navigateToAddPearls}>
             <Text>Go to add pearl screen</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToAdd_3}>
+        <TouchableOpacity onPress={navigateToreviewImage}>
             <Text>Go to add_3 slide</Text>
         </TouchableOpacity>
     </View>
