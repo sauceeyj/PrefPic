@@ -5,19 +5,21 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-nati
 export default function ProcedureReviewSummary() {
   return (
     <View style={styles.container}>
-      {/* Back Header */}
+     
         <TouchableOpacity onPress={() => router.back()}>
             <Text style={styles.backText}>←  Back</Text>
         </TouchableOpacity>
 
-      {/* Title Section */}
+      
       <View style={styles.titleSection}>
         <Text style={styles.procedureName}>[Procedure Name]</Text>
         <Text style={styles.subtitle}>Review summary</Text>
       </View>
 
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        {/* Images Section */}
+        {/* 
+        //RHCM 
+        //Images Section */}
         <View style={styles.card}>
           <View style={styles.cardHeader}>
             <Text style={styles.cardTitle}>Images</Text>
@@ -30,7 +32,9 @@ export default function ProcedureReviewSummary() {
           </View>
         </View>
 
-        {/* Procedure Pearls Section */}
+        {/* 
+        //RHCM 
+        //Procedure Pearls Section */}
         <View style={styles.card}>
           <View style={styles.cardHeader}>
             <Text style={styles.cardTitle}>Procedure Pearls</Text>
@@ -58,7 +62,6 @@ export default function ProcedureReviewSummary() {
         </View>
       </ScrollView>
 
-      {/* Finish Button */}
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Finish</Text>
       </TouchableOpacity>

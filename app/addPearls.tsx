@@ -16,7 +16,9 @@ const navigateToprocedureReviewSummary = () => {
               </TouchableOpacity>
       <Text style={styles.header}>Procedure Pearls</Text>
 
-      {/* Always Do */}
+      {/* 
+      //RHCM 
+      //Always Do */}
       <View style={styles.section}>
         <View style={styles.labelContainer}>
           <View style={[styles.dot, { backgroundColor: "green" }]} />
@@ -25,7 +27,9 @@ const navigateToprocedureReviewSummary = () => {
         <TextInput style={[styles.input, { height: 120 }]} multiline placeholder="Enter details..." />
       </View>
 
-      {/* Watch For */}
+      {/* 
+      //RHCM 
+      //Watch For */}
       <View style={styles.section}>
         <View style={styles.labelContainer}>
           <View style={[styles.dot, { backgroundColor: "orange" }]} />
@@ -34,7 +38,9 @@ const navigateToprocedureReviewSummary = () => {
         <TextInput style={[styles.input, { height: 120 }]} multiline placeholder="Enter details..." />
       </View>
 
-      {/* Never Do */}
+      {/* 
+      //RHCM 
+      //Never Do */}
       <View style={styles.section}>
         <View style={styles.labelContainer}>
           <View style={[styles.dot, { backgroundColor: "red" }]} />
@@ -43,7 +49,9 @@ const navigateToprocedureReviewSummary = () => {
         <TextInput style={[styles.input, { height: 120 }]} multiline placeholder="Enter details..." />
       </View>
 
-      {/* Next Button */}
+      {/* 
+      //RHCM 
+      //Next Button */}
       <TouchableOpacity style={styles.button} onPress={navigateToprocedureReviewSummary}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
