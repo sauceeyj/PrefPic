@@ -2,7 +2,7 @@
   "name": "prefpic",
   "license": "0BSD",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "App.tsx",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "expo": "~52.0.30",
+    "expo-router": "^4.0.17",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-native": "0.76.6"
