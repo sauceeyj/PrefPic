@@ -38,11 +38,12 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     width: 120,
     flex: 1,
+    
   },
 
   retakebutton: {
     backgroundColor: "#FFFFFF",
-    padding: 16,
+    padding: 14,
     borderRadius: 31,
     alignItems: "center",
     borderColor: "#375894",
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: "rgba(41, 41, 41, 0.8)",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,
