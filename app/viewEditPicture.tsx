@@ -1,4 +1,4 @@
-import { Router, useRouter } from "expo-router";
+import { Router, router, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
@@ -114,6 +114,13 @@ const styles = StyleSheet.create({
   
 });
 
+const navigateToretakePicture = () => {
+  router.push("retakePicture");
+}
+const navigateToAddPearls = () => {
+  router.push("addPearls");
+}
+
 export default function viewEditPicture() {
   const router = useRouter();
 
@@ -134,7 +141,7 @@ export default function viewEditPicture() {
       <View style={styles.boxContainer}>
       {[...Array(5)].map((_, index) => (
       <View key={index} style={styles.smallBox}>
-          <TouchableOpacity onPress={() => router.back()}>
+          <TouchableOpacity onPress={navigateToretakePicture}>
       <Text style={styles.plusSign}>+</Text>
       </TouchableOpacity>
       </View>
@@ -148,7 +155,7 @@ export default function viewEditPicture() {
           <Text style={styles.addPicturebuttonText}>Add more pictures</Text>
       </TouchableOpacity>
       
-      <TouchableOpacity style={styles.nextbutton} onPress={() => router.back()}>
+      <TouchableOpacity style={styles.nextbutton} onPress={navigateToAddPearls}>
           <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
         </View>

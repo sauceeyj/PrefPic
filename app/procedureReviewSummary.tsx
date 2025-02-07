@@ -3,6 +3,10 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 
 export default function ProcedureReviewSummary() {
+
+  // const navigateToLoading = () => {
+  //   router.push("loading");
+  // }
   return (
     <View style={styles.container}>
      
@@ -62,7 +66,7 @@ export default function ProcedureReviewSummary() {
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} >
         <Text style={styles.buttonText}>Finish</Text>
       </TouchableOpacity>
     </View>

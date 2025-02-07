@@ -114,7 +114,7 @@ export default function reviewImage() {
 
   const [isPreview, setIsPreview] = useState(false); 
   const navigateToReviewSummary = () => {
-    router.push("procedureReviewSummary");
+    router.push("viewEditPicture");
   }
   
 
