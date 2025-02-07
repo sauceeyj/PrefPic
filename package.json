@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "expo": "~52.0.30",
+
+    "expo-checkbox": "^4.0.1",
     "expo-router": "^4.0.17",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
-    "react-native": "0.76.6"
+    "react-native": "0.76.6",
+    "start": "^5.1.0"
+
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
