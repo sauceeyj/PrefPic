@@ -21,6 +21,10 @@ const navigateToviewEditPicture = () => {
   router.push("viewEditPicture");
 };
 
+const navigateToretakePicture = () => {
+  router.push("retakePicture");
+};
+
 
   return (
     <View style={styles.container}>
@@ -33,6 +37,9 @@ const navigateToviewEditPicture = () => {
         </TouchableOpacity>
         <TouchableOpacity onPress={navigateToviewEditPicture}>
             <Text>Go to viewEditPicture</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToretakePicture}>
+            <Text>Go to retakePicture</Text>
         </TouchableOpacity>
     </View>
 

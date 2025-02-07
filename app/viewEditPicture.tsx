@@ -132,16 +132,15 @@ export default function viewEditPicture() {
         {/* Center box */}
       <View style={styles.centerBox}>
       <View style={styles.boxContainer}>
-    {[...Array(5)].map((_, index) => (
+      {[...Array(5)].map((_, index) => (
       <View key={index} style={styles.smallBox}>
           <TouchableOpacity onPress={() => router.back()}>
       <Text style={styles.plusSign}>+</Text>
       </TouchableOpacity>
       </View>
-     
-    ))}
-  </View>
-        </View>
+      ))}
+      </View>
+      </View>
 
         {/* Buttons */}
     <View style={styles.buttonContainer}>
