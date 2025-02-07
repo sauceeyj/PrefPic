@@ -8,6 +8,7 @@ export default function RootLayout() {
       <Stack.Screen name="addPearls" options={{ headerShown: false }} />
       <Stack.Screen name="procedureReviewSummary" options={{ headerShown: false }} />
       <Stack.Screen name="reviewImage" options={{headerShown:false}} />
+      <Stack.Screen name="addProcedure" options={{ headerShown:false}} />
     </Stack>
   );
 }
