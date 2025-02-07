@@ -2,8 +2,16 @@
 import React from 'react';
 import { View, Text, StyleSheet,SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
 import BottomNavigation from '../components/bottomNav';
+import { router } from 'expo-router';
 
 const LibraryScreen: React.FC = () => {
+
+
+
+    const navigateToAddProcedure = () => {
+        router.push("addProcedure");
+      }
+
     return (
     <SafeAreaView style={styles.container}> 
         <View style={styles.container}>
@@ -17,7 +25,7 @@ const LibraryScreen: React.FC = () => {
                 {/* 
                 //MG 
                 //Add Procedure */}
-                <TouchableOpacity style={styles.addButton}>
+                <TouchableOpacity style={styles.addButton} onPress={navigateToAddProcedure}>
                     <Text style={styles.addProcedureButtonText}>Add Procedure   +</Text>
                 </TouchableOpacity>
                 {/* 

@@ -6,6 +6,11 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-nativ
 const AddProcedure: React.FC = () => {
 const [procedureName, setProcedureName] = useState("");
 
+const navigateToReviewImage = () => {
+  router.push("reviewImage");
+}
+
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => router.back()}>
@@ -21,7 +26,7 @@ const [procedureName, setProcedureName] = useState("");
         value={procedureName}
         onChangeText={setProcedureName}
       />
-      <TouchableOpacity style={styles.nextButton} onPress={() => router.back()}>
+      <TouchableOpacity style={styles.nextButton} onPress={navigateToReviewImage}>
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
     </View>

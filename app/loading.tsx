@@ -1,18 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground, ActivityIndicator } from "react-native";
+import { View, StyleSheet, ImageBackground } from "react-native";
+import LoadingAnimation from "../components/LoadingAnimation"; // Updated path to match repo
+
 
 export default function LoadingScreen() {
   return (
-    <ImageBackground
-    source={require("../assets/splash-icon.png")} // Replace with your image path
-    style={styles.background}
-  >
-    <View style={styles.overlay}>
-      <ActivityIndicator size="large" color="#fff" />
-      <Text style={styles.text}>Loading...</Text>
-    </View>
-  </ImageBackground>
-);
+    <ImageBackground  source={require("../assets/splash-icon.png")} style={styles.background}>
+      <View style={styles.overlay}>
+        <LoadingAnimation message="Loading..." size="large" color="#fff" />
+      </View>
+    </ImageBackground>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,23 +18,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f5f5f5", // Light gray background color
   },
-   background: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  background: {
+    flex: 1, // Make the background image cover the entire screen
+    justifyContent: "center", // Center content vertically
+    alignItems: "center", // Center content horizontally
   },
   overlay: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-    padding: 20,
-    borderRadius: 10,
-  },
-  text: {
-    color: "#fff",
-    fontSize: 18,
-    marginTop: 10,
+    justifyContent: "center", // Center content vertically
+    alignItems: "center", // Center content horizontally
+    backgroundColor: "rgba(0, 0, 0, 0.4)", // Semi-transparent dark background
+    padding: 20, // Add padding around the overlay content
+    borderRadius: 10, // Rounded corners
   },
 });
