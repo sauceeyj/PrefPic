@@ -10,11 +10,23 @@ const router = useRouter();
 const navigateToAddPearls = () => {
   router.push("addPearls");
 
+};
+
+const navigateToreviewImage = () => {
+
+   router.push("reviewImage");
 
 };
-const navigateToreviewImage = () => {
-   router.push("reviewImage");
-}
+
+const navigateToSecondLibrary = () => {
+
+  router.push("second_library");          {/*Route to second_library*/}
+};
+
+const navigateToLibrary = () => {
+  router.push("library");                 {/*Route to library*/}
+};
+
   return (
     <View style={styles.container}>
       <Text>Welcome to the Home Screen!</Text>
@@ -24,6 +36,12 @@ const navigateToreviewImage = () => {
         <TouchableOpacity onPress={navigateToreviewImage}>
             <Text>Go to add_3 slide</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToLibrary}>
+        <Text>Go to library screen</Text>           {/*library button at index*/}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={navigateToSecondLibrary}>
+        <Text>Go to second library screen</Text>    {/*Second library button at index*/}
+      </TouchableOpacity>
     </View>
 
     
