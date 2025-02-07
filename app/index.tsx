@@ -7,6 +7,8 @@ import { useRouter } from "expo-router";
 export default function HomeScreen() {
 const router = useRouter();
 
+
+
 const navigateToAddPearls = () => {
   router.push("addPearls");
 
@@ -14,7 +16,13 @@ const navigateToAddPearls = () => {
 };
 const navigateToreviewImage = () => {
    router.push("reviewImage");
+};
+
+const navigateTostart = () => {
+  router.push("homePage");
 }
+
+
   return (
     <View style={styles.container}>
       <Text>Welcome to the Home Screen!</Text>
@@ -24,6 +32,9 @@ const navigateToreviewImage = () => {
         <TouchableOpacity onPress={navigateToreviewImage}>
             <Text>Go to add_3 slide</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={navigateTostart}>
+        <Text>Go to start</Text>
+      </TouchableOpacity>
     </View>
 
     
