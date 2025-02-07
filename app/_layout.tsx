@@ -9,11 +9,15 @@ export default function RootLayout() {
       <Stack.Screen name="procedureReviewSummary" options={{ headerShown: false }} />
       <Stack.Screen name="reviewImage" options={{headerShown:false}} />
 
+      <Stack.Screen name="addProcedure" options={{ headerShown:false}} />
+
+
       <Stack.Screen name ="homePage" options={{ headerShown : false }} />
 
 
       <Stack.Screen name="library" options={{headerShown: true}} />           {/*library screen*/}
       <Stack.Screen name="second_library" options={{headerShown: true}} />    {/*second_library screen*/}
+
 
     </Stack>
   );

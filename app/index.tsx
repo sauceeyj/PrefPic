@@ -13,10 +13,18 @@ const navigateToAddPearls = () => {
   router.push("addPearls");
 
 };
+const navigateToAddProcedure = () => {
+  router.push("addProcedure");
+
+};
 
 const navigateToreviewImage = () => {
 
    router.push("reviewImage");
+
+};
+
+
 
 };
 
@@ -38,12 +46,16 @@ const navigateToLibrary = () => {
 };
 
 
+
   return (
     <View style={styles.container}>
       <Text>Welcome to the Home Screen!</Text>
         <TouchableOpacity onPress={navigateToAddPearls}>
             <Text>Go to add pearl screen</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={navigateToAddProcedure}>
+        <Text>Go to add_1 screen</Text>
+      </TouchableOpacity>
         <TouchableOpacity onPress={navigateToreviewImage}>
             <Text>Go to add_3 slide</Text>
         </TouchableOpacity>
