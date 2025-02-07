@@ -17,6 +17,7 @@ export default function StartScreen(){
 
 
 
+
 return (
 
    <ImageBackground
@@ -48,6 +49,7 @@ return (
 
 
 )
+
 }
 
 const styles = StyleSheet.create({
