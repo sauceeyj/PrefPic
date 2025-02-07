@@ -113,7 +113,10 @@ export default function reviewImage() {
   const router = useRouter();
 
   const [isPreview, setIsPreview] = useState(false); 
-
+  const navigateToReviewSummary = () => {
+    router.push("procedureReviewSummary");
+  }
+  
 
   //open bleed view
   const handleImageClick = () => {
@@ -156,7 +159,7 @@ export default function reviewImage() {
           <Text style={styles.retakebuttonText}>Retake</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.nextbutton} onPress={() => router.back()}>
+        <TouchableOpacity style={styles.nextbutton} onPress={navigateToReviewSummary}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
