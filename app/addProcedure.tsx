@@ -4,11 +4,17 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 
 const AddProcedure: React.FC = () => {
+  // State variable to store the procedure name
 const [procedureName, setProcedureName] = useState("");
 
+  // RJP - > 2/7/2025
+ // Function to navigate to the "camera" screen with procedureName as a parameter
 const navigateToReviewImage = () => {
-  router.push("reviewImage");
-}
+  router.push({
+    pathname: "camera", // Navigating to the "camera" route
+    params: { procedureName: procedureName }, // Passing procedureName as a parameter 
+  });
+};
 
 
   return (

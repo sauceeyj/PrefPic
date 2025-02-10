@@ -1,4 +1,4 @@
-import { Router, useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: "100%",
-    height: 500,
+    width: 350,
+    height: 490,
     marginTop: 5,
     borderRadius: 20,
     padding: 12,
@@ -112,7 +112,30 @@ const styles = StyleSheet.create({
 export default function reviewImage() {
   const router = useRouter();
 
-  const [isPreview, setIsPreview] = useState(false); 
+  //RJP -> 2/7/2025
+  // (import) image and procedure name from add_2.tsx 
+  const { photoUri, procedureName } = useLocalSearchParams<{
+    photoUri: string;
+    procedureName: string;
+  }>();
+
+  //RJP -> 2/7/2025
+  // Decode the photo URI
+  const decodedPhotoUri = photoUri ? decodeURIComponent(photoUri) : null;
+
+  //RJP
+  // Debug log to check if URI is correct 
+  console.log("Received photoUri: ", decodedPhotoUri);  // Check if the URI is correct
+
+  const [isPreview, setIsPreview] = useState(false);  
+
+  const navigateToCamera = () => {
+
+    //RJP -> 2/7/2025
+    // Use replace instead of push to go back to camera without stacking screens
+    router.replace("camera"); 
+  };
+
   const navigateToReviewSummary = () => {
     router.push("viewEditPicture");
   }
@@ -131,15 +154,22 @@ export default function reviewImage() {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <TouchableOpacity onPress={() => router.back()}>
+      <TouchableOpacity onPress={navigateToCamera}>
         <Text style={styles.backText}>←  Back</Text>
       </TouchableOpacity>
-      <Text style={styles.header}>Image for: [Procedure Name]</Text>
+      
+      <Text style={styles.header}>Image for: {procedureName}</Text> 
 
-      {/* Image */}
+      {/* RJP -> 2/8/2025
+        change image source to retrieve image taken from camera
+      */}
+      {decodedPhotoUri  ? (
       <TouchableOpacity onPress={handleImageClick}>
-        <Image style={styles.image} source={require("../assets/reviewImage/reviewImage.png")} />
+        <Image style={styles.image} source={{ uri: decodedPhotoUri }} /> 
       </TouchableOpacity>
+      ) : (
+  <Text>No image available</Text>  // Show this if the URI is invalid or missing
+)}
 
 
       {/* Full Image Overlay */}
@@ -148,14 +178,14 @@ export default function reviewImage() {
           <TouchableOpacity onPress={handleClosePreview} style={styles.closeButton}>
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity>
-          <Image style={styles.fullImage} source={require("../assets/reviewImage/reviewImage.png")} />
+          <Image style={styles.fullImage} source={{ uri: photoUri }} />
         </View>
       )}
 
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.retakebutton} onPress={() => router.back()}>
+        <TouchableOpacity style={styles.retakebutton} onPress={navigateToCamera}>
           <Text style={styles.retakebuttonText}>Retake</Text>
         </TouchableOpacity>
 
