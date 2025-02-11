@@ -1,19 +1,57 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import CheckBox from "expo-checkbox" 
-import { Image,ImageBackground  ,View,Text, StyleSheet, TouchableOpacity} from "react-native"
-import { useState } from "react";
-
+import { Image,ImageBackground  ,View,Text, StyleSheet, TouchableOpacity,Linking,Alert} from "react-native"
+import { useState,useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default function StartScreen(){
 
   const [isChecked, setChecked] = useState(false);
     const router  = useRouter();
+     // Function to fetch authorization code from API
+  const fetchAuthorizationCode = async () => {
+    try {
+      const response = await fetch("https://your-api.com/authorize-device", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        const authCode = data.authorizationCode; // Assuming API returns { authorizationCode: "123456" }
+
+        // Store authorization code in AsyncStorage
+        await AsyncStorage.setItem("AUTH_CODE", authCode);
+        console.log("Authorization Code Stored:", authCode);
+
+        // Navigate to the next screen
+        router.push("library");
+      } else {
+        Alert.alert("Error", data.message || "Failed to get authorization code");
+      }
+    } catch (error) {
+      console.error("API Error:", error);
+      Alert.alert("Error", "Something went wrong. Please try again.");
+    }
+  };
+  
+    useEffect(() => {
+      console.log("isChecked updated:", isChecked);
+    }, [isChecked]);
   
     const navigateToIndex = () => {
+      console.log("isChecked before navigation:", isChecked); // Debugging log
+      if (!isChecked) {
+        Alert.alert("Terms & Privacy", "You must accept the Terms and Privacy Policy to proceed.");
+        return;
+      }
       router.push("library");
-    }
+    };
 
 
 
@@ -33,15 +71,38 @@ return (
         <Text>version is password protected. </Text>
        
        {/* Checkbox*/}
-       <View style = {styles.checkboxContainer}>
-       <CheckBox value={isChecked} onValueChange={setChecked}/> 
-       <Text style ={styles.accept}>Accept Terms and Privacy Policy</Text>
+       <View style={styles.checkboxContainer}>
+          <CheckBox 
+            value={isChecked} 
+            onValueChange={(newValue) => {
+              console.log("Checkbox clicked:", newValue); // Debugging log
+              setChecked(newValue);
+            }} 
+          />
+       <Text 
+        style={styles.link} 
+        onPress={() => Linking.openURL("https://prefpic.com/terms.html")}
+      >
+        Accept Terms
+      </Text>
+      <Text> and </Text>
+      <Text 
+        style={styles.link} 
+        onPress={() => Linking.openURL("https://prefpic.com/privacypolicy.html")}
+      >
+        Privacy Policy
+      </Text>
        </View>
+
         {/* Button*/}
         <View style={styles.bcontainer}>
-         <TouchableOpacity style={styles.getButton} onPress={navigateToIndex}>
-          <Text style= {styles.GetText} >Get Started</Text>
-         </TouchableOpacity>
+        <TouchableOpacity 
+            style={[styles.getButton, { opacity: isChecked ? 1 : 0.5 }]} 
+            onPress={navigateToIndex}
+            disabled={!isChecked} // Prevents clicking when unchecked
+          >
+            <Text style={styles.GetText}>Get Started</Text>
+          </TouchableOpacity>
         </View>
       
       </View>
@@ -156,7 +217,12 @@ const styles = StyleSheet.create({
     height: 75,
     borderRadius: 50,
     paddingTop: 61
+  },
+  link: {
+    color: "blue",
+    textDecorationLine: "underline",
   }
+   
 
 });
 
