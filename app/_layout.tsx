@@ -12,7 +12,6 @@ export default function RootLayout() {
       <Stack.Screen name="viewEditPicture" options={{headerShown:false}}/>
       <Stack.Screen name="retakePicture" options={{headerShown:false}}/>
       <Stack.Screen name="addProcedure" options={{ headerShown:false}} />
-      <Stack.Screen name ="homePage" options={{ headerShown : false }} />
       <Stack.Screen name="library" options={{headerShown: false}} />           {/*library screen*/}
       <Stack.Screen name="second_library" options={{headerShown: false}} />    {/*second_library screen*/}
       <Stack.Screen name="camera" options={{headerShown: false}} />
